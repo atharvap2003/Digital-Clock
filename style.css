@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.block{
+    padding: 20px 25px;
+    border: 2px solid black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    color:black;
+    transform: translate(-50%, -50%);
+    font-family:'Times New Roman', Times, serif;
+    font-size: 70px;
+    font-weight: bold;
+    box-sizing:content-box;
+}
