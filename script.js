@@ -1,28 +1,29 @@
 function displayTime() {
     let dateTime = new Date();
+
+    let hrs = ( dateTime.getHours() < 10)? "0" + dateTime.getHours(): dateTime.getHours();
+    let min = (dateTime.getMinutes() < 10)? "0" + dateTime.getMinutes(): dateTime.getMinutes();
+    let sec = (dateTime.getSeconds() < 10)? "0" + dateTime.getSeconds(): dateTime.getSeconds();
     
-    
-    let hrs = dateTime.getHours();
-    let min = dateTime.getMinutes();
-    let sec = dateTime.getSeconds();
-    datenum = dateTime.getDate();
-    month = dateTime.getUTCMonth();
-    year = dateTime.getFullYear();
     let session = document.getElementById('time');
     
-    const cars = ["Jan", "Feb", "March","April","May","June","July","Aug","Sept","Oct","Nov","Dec"];
+    document.getElementById('hours').innerHTML = hrs;
+    document.getElementById('minutes').innerHTML = min;
+    document.getElementById('seconds').innerHTML = sec;
+
     if(hrs>=12){
-        hrs = hrs - 12;
         session.innerHTML = 'PM';
     }
     else{
         session.innerHTML = 'AM';
     }
-    document.getElementById('hours').innerHTML = hrs;
-    document.getElementById('minutes').innerHTML = min;
-    document.getElementById('seconds').innerHTML = sec;
-    document.getElementById('day').innerHTML = datenum; 
-    document.getElementById('month').innerHTML = month;
-    document.getElementById('year').innerHTML = year;
+    
+    let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+    let month = ["January","February","March","April","May","June","July","August","September","October","Novembar","December"];
+    let day = dateTime.getDate() ;
+
+    var currentDate = days[dateTime.getDay()] + ", " + month[dateTime.getMonth()] + " " + day;
+
+    document.getElementsByClassName("date")[0].innerHTML = currentDate;
 }
-setInterval(displayTime,10);
+setInterval(displayTime,1000);
